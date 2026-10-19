@@ -10,15 +10,19 @@ const navItems = [
 export function Navbar({ activeSection, onSectionChange }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navRef = useRef(null);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      onSectionChange(sectionId);
-      setMobileMenuOpen(false);
-    }
-  };
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target) && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [mobileMenuOpen]);
 
   // Simple, reliable scroll handler
   useEffect(() => {
@@ -44,9 +48,18 @@ export function Navbar({ activeSection, onSectionChange }) {
     };
   }, []);
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      onSectionChange(sectionId);
+      setMobileMenuOpen(false);
+    }
+  };
+
   return (
     <nav 
-      // ref={navbarRef}
+      ref={navRef}
       className={`navbar ${isScrolled ? 'scrolled' : ''}`} 
       role="navigation" 
       aria-label="Main navigation"
@@ -61,7 +74,7 @@ export function Navbar({ activeSection, onSectionChange }) {
 
         <button
           className="mobile-menu-btn"
-          // style={{ marginLeft: '150px' }}  
+          style={{marginLeft: '70px'}}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-expanded={mobileMenuOpen}
           aria-controls="nav-links"
@@ -70,7 +83,7 @@ export function Navbar({ activeSection, onSectionChange }) {
           <MenuIcon size={24} aria-hidden="true" />
         </button>
 
-        <ul className="nav-links" id="nav-links" role="menubar">
+        <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`} id="nav-links" role="menubar">
           {navItems.map(item => (
             <li key={item.id} role="none">
               <button
