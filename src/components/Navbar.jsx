@@ -74,7 +74,7 @@ export function Navbar({ activeSection, onSectionChange }) {
 
         <button
           className="mobile-menu-btn"
-          style={{marginLeft: '70px'}}
+          style={{marginLeft: '100px'}}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-expanded={mobileMenuOpen}
           aria-controls="nav-links"
