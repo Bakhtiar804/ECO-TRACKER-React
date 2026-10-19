@@ -17,7 +17,7 @@ export function Footer() {
           <p>Empowering cities and citizens through actionable environmental analytics.</p>
         </div>
         <div className="footer-bottom">
-          <p>&copy; {currentYear} EcoTracker Project. Developed for Software Engineering Portfolio.</p>
+          <p>&copy; {currentYear} EcoTracker Project. All rights reserved .</p>
         </div>
       </div>
     </footer>

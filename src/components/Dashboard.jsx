@@ -88,7 +88,7 @@ export function Dashboard() {
           <LeafIcon size={14} aria-hidden="true" />
           Live City Environmental Intelligence
         </span>
-        <h1>Track Local Emissions, <br /><span className="highlight-text">Heal Your Environment.</span></h1>
+        <h1>Track Local Emissions, <br /><span className="bg" style={{color: 'black'  }}>Heal Your Environment.</span></h1>
         <p>Real-time data on air quality, vehicle impact, and tree oxygen deficit across major urban centers.</p>
 
         {/* City Selector - Improved */}
