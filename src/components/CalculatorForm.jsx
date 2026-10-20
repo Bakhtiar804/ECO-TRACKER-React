@@ -83,7 +83,7 @@ export function CalculatorForm({
       </button>
       {isOpen && (
         <div className="section-content" style={{ animation: 'slideDown 0.3s ease' }}>
-          <div className="section-inner">
+          <div className="section-inner" style={{paddingLeft : '0'}}>
             {children}
             {referenceCard}
           </div>
@@ -208,7 +208,9 @@ export function CalculatorForm({
   );
 
   return (
-    <form className="calculator-form" onSubmit={onCalculate} noValidate>
+    <div style={{width:'100%', margin:'0 auto'}}>
+
+    <form className="calculator-form" style={{paddingLeft: '0' , margin : '0 auto', padding:'5%'}} onSubmit={onCalculate} noValidate>
       {/* Progress Indicator */}
       <div className="form-progress" role="progressbar" aria-valuenow={calculateProgress()} aria-valuemin={0} aria-valuemax={100} aria-label="Form completion">
         <div className="progress-bar">
@@ -503,7 +505,7 @@ export function CalculatorForm({
           className="btn-primary btn-large btn-submit"
           disabled={calculating}
           aria-busy={calculating}
-        >
+          >
           {calculating ? (
             <>
               <span className="btn-spinner" aria-hidden="true" />
@@ -521,6 +523,7 @@ export function CalculatorForm({
         </p>
       </div>
     </form>
+          </div>
   );
 
   function calculateProgress() {

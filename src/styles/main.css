@@ -1689,6 +1689,75 @@ html {
   }
 }
 
+@media (max-width: 320px) {
+  /* Extra small phones (iPhone SE, etc.) */
+  .calculator-form { padding: 12px; }
+  .section-inner { padding: 10px; }
+  .calculator-card { padding: 12px; }
+  .calculator-section-card { border-radius: var(--radius-sm); }
+  .section-legend { padding: 12px 14px; }
+  .legend-icon { width: 32px; height: 32px; }
+  .legend-content h3 { font-size: 0.8rem; }
+  .legend-content p { font-size: 0.7rem; }
+  .reference-card { padding: 8px 10px; }
+  .custom-input,
+  .custom-select {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+  .input-label { font-size: 0.7rem; }
+  .reference-icon { width: 24px; height: 24px; }
+  .reference-content { font-size: 0.65rem; }
+  .reference-content strong { font-size: 0.65rem; }
+  .reference-content small { font-size: 0.55rem; }
+  
+  /* Fix label row wrapping */
+  .input-label-row {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .help-trigger { padding: 3px; }
+  .input-label { font-size: 0.65rem; gap: 4px; }
+  .input-field-container { gap: 3px; }
+  .custom-input,
+  .custom-select {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+  .input-hint { font-size: 0.65rem; }
+  .input-error { font-size: 0.65rem; padding: 3px 6px; }
+  
+  /* Help text on separate line */
+  .help-trigger {
+    margin-left: auto;
+    margin-top: 4px;
+  }
+  
+  /* Ensure form grid items don't overflow */
+  .form-grid > * {
+    min-width: 0;
+  }
+  .input-wrapper {
+    min-width: 0;
+  }
+  .input-field-container {
+    min-width: 0;
+  }
+  .custom-input,
+  .custom-select {
+    min-width: 0;
+  }
+  
+  /* Also reduce main container padding at 320px */
+  .main-container { padding: 24px 8px 48px; }
+  .hero-header { padding: 0 8px; }
+  .hero-header h1 { font-size: 1.75rem; }
+  .hero-header p { font-size: 1rem; }
+  .city-selector-wrapper { gap: 6px; }
+  .city-dropdown { padding: 10px 40px 10px 12px; font-size: 0.9rem; }
+  .dropdown-icon { right: 10px; }
+}
+
 @media (max-width: 480px) {
   .city-dropdown { padding: 14px 48px 14px 16px; font-size: 0.95rem; }
   .metrics-grid { grid-template-columns: 1fr; }
